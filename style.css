@@ -1,0 +1,108 @@
+/* -------------------------------------------- */
+/* body */
+:root {
+  --gap: 0.75rem;
+  --white: #fffffe;
+  --black: #121212;
+  --transition: all 0.3s ease;
+  --blur: blur(1rem) saturate(180%);
+  --shadow: 0 1px 2px #12121230, inset 1px 2px 3px #fffffe30;
+}
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  list-style: none;
+  color: currentColor;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #c1c1b9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: var(--transition);
+}
+html,
+body {
+  width: 100%;
+}
+.base {
+  padding: var(--gap);
+  margin: 2rem 1.5rem;
+}
+/* body */
+/* -------------------------------------------- */
+/* base */
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  flex-direction: column;
+}
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap);
+}
+.task-input,
+.addButton,
+.todo-item {
+  cursor: pointer;
+}
+.task-input {
+  padding: var(--gap);
+  border-radius: var(--gap);
+  border: 2px solid #121212;
+}
+.task-input:hover,
+.task-input:focus {
+  border: 2px solid #c9c9f0;
+  box-shadow: var(--shadow);
+}
+.addButton {
+  padding: var(--gap);
+  border-radius: var(--gap);
+  background-color: #dcdcc8;
+  transition: var(--transition);
+}
+.addButton:hover {
+  background-color: #c9c9f0;
+}
+.content {
+  background-color: var(--white);
+  padding: var(--gap);
+  border-radius: var(--gap);
+  box-shadow: 7px 7px 10px #444444;
+}
+.todo-list {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap);
+  flex-direction: column;
+  padding: var(--gap);
+}
+.todo-item {
+  padding: var(--gap);
+  display: flex;
+  justify-content: space-between;
+  transition: var(--transition);
+  border-radius: var(--gap);
+  background-color: #c9c9f030;
+}
+.todo-item:hover {
+  box-shadow: var(--shadow);
+  background-color: #c9c9f0;
+}
+/* base */
+/* -------------------------------------------- */
