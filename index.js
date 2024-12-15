@@ -52,20 +52,22 @@ addButton.addEventListener("click", () => {
 function saveTasks() {
   const tasks = [];
   const listItem = todoList.getElementsByClassName(`todo-item`);
-  Array.from(listItem).forEach((element) => {
+  for (let index = 0; index < listItem.length; index++) {
+    const element = listItem[index];
     const taskLabel = element.querySelector(".task-label");
     if (taskLabel) {
       const taskContent = taskLabel.textContent;
       tasks.push(taskContent);
     }
-  });
+  }
   localStorage.setItem("keys", JSON.stringify(tasks));
 }
 function loadTasks() {
   const tasks = JSON.parse(localStorage.getItem("keys")) || [];
-  tasks.forEach((taskContent, index) => {
+  for (let index = 0; index < tasks.length; index++) {
+    const taskContent = tasks[index];
     const taskLabel = `task-${index + 1}`;
     const taskItem = createCard(taskLabel, taskContent);
     todoList.appendChild(taskItem);
-  });
+  }
 }
