@@ -1,6 +1,7 @@
-const todoList = document.getElementById("todoList");
+const ul = document.getElementById("todoList");
 const addButton = document.getElementById("addButton");
 const input = document.getElementById("taskInput");
+
 loadTasks();
 
 function createElement(tagName, textContent) {
@@ -46,13 +47,13 @@ function createCard(inputId, taskContent) {
   return li;
 }
 
-const newTaskId = `task-${todoList.children.length + 1}`;
+const newTaskId = `task-${ul.children.length + 1}`;
 
 input.addEventListener(`keyup`, (e) => {
   const taskValue = e.target.value.trim();
 
   if (e.key == "Enter" && e.target.value !== "") {
-    todoList.appendChild(createCard(newTaskId, taskValue));
+    ul.appendChild(createCard(newTaskId, taskValue));
     e.target.value = "";
 
     saveTasks();
@@ -62,7 +63,7 @@ input.addEventListener(`keyup`, (e) => {
 addButton.addEventListener("click", () => {
   const taskValue = input.value.trim();
   if (taskValue !== "") {
-    todoList.appendChild(createCard(newTaskId, taskValue));
+    ul.appendChild(createCard(newTaskId, taskValue));
     input.value = "";
 
     saveTasks();
@@ -71,7 +72,7 @@ addButton.addEventListener("click", () => {
 
 function saveTasks() {
   const tasks = [];
-  const li = todoList.getElementsByClassName(`todo-item`);
+  const li = ul.getElementsByClassName(`todo-item`);
 
   for (let index = 0; index < li.length; index++) {
     const element = li[index];
@@ -94,6 +95,6 @@ function loadTasks() {
     const label = `task-${index + 1}`;
     const taskItem = createCard(label, taskContent);
 
-    todoList.appendChild(taskItem);
+    ul.appendChild(taskItem);
   }
 }
